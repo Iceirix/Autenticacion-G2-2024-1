@@ -16,7 +16,7 @@ namespace Autenticacion_G2_2024_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormAutenticacion());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Autenticacion_G2_2024_1
 {
-    partial class Form1
+    partial class FormAutenticacion
     {
         /// <summary>
         /// Variable del diseñador necesaria.

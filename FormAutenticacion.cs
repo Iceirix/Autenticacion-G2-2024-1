@@ -2,13 +2,14 @@
 using System.Windows.Forms;
 using BiblioUsuarios_G2_2024_1;
 using System.Collections;
+using ReproductorMusica_G2_2024_1;
 
 namespace Autenticacion_G2_2024_1
 {
-    public partial class Form1 : Form
+    public partial class FormAutenticacion : Form
     {
         private ArrayList usuarios;
-        public Form1()
+        public FormAutenticacion()
         {
             InitializeComponent();
             usuarios = new ArrayList();
@@ -17,7 +18,7 @@ namespace Autenticacion_G2_2024_1
 
         private void CargarUsuarios()
         {
-            usuarios.Add(new Usuario("Armando","*armando00"));
+            usuarios.Add(new Usuario("Armando", "*armando00"));
             usuarios.Add(new Usuario("Luis", "luis123"));
             usuarios.Add(new Usuario("Jorge", "contra7"));
         }
@@ -27,16 +28,23 @@ namespace Autenticacion_G2_2024_1
             foreach (object usuario in usuarios)
             {
                 Usuario miUsuario = (Usuario)usuario;
-                if (txtbUser.Text == miUsuario.NomUsuario  && txtbPassword.Text ==miUsuario.Password)
+                if (txtbUser.Text == miUsuario.NomUsuario && txtbPassword.Text == miUsuario.Password)
                 {
-                    MessageBox.Show("Ingreso Correcto");
+                    txtbPassword.Clear();
+                    txtbUser.Clear();
+                    //MessageBox.Show("Ingreso Correcto");
+                    FormReproductor formReproductor = new FormReproductor(this);
+                    formReproductor.Show();
+                    this.Hide();
+
                     break;
                 }
-                else if(c == usuarios.Count-1)
+                else if (c == usuarios.Count - 1)
                     MessageBox.Show("Usuario o contraseña incorrecto");
-                }
+
                 c++;
             }
         }
     }
 }
+
